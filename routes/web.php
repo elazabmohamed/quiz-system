@@ -26,3 +26,8 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+//  adding or removing student, adding exams
+Route::group(['middleware'=>['auth', 'isAdmin'],'prefix'=>'admin'], function(){
+    
+});
