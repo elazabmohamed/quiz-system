@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
 use App\Models\User;
+use App\Models\Quiz;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,7 +17,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call(UserSeeder::class);
-
+        $this->call(QuizSeeder::class);
 
         //\App\Models\User::factory()->count(20)->create();
         // \App\Models\User::factory(5)->create();
