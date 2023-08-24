@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Admin\QuizController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,5 +29,5 @@ Route::middleware([
 
 //  adding or removing student, adding exams
 Route::group(['middleware'=>['auth', 'isAdmin'],'prefix'=>'admin'], function(){
-    
+    Route::resource('quizzes', QuizController::class);
 });

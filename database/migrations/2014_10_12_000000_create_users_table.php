@@ -28,7 +28,7 @@ return new class extends Migration
             array(
                 'name' =>'Mohamed Elazab',
                 'email' => 'm@gmail.com',
-                'password'=>'mohamed123',
+                'password'=>bcrypt('mohamed123'),
                 'type'=>'admin'
             ));
 
