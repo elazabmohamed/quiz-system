@@ -22,7 +22,7 @@ class QuizController extends Controller
      */
     public function create()
     {
-        return "create quiz";
+        return view('admin.quiz.create');
     }
 
     /**
