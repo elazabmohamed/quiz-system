@@ -3,7 +3,6 @@
     <x-slot name="header">Update Quiz</x-slot>
 
     <div class="card">
-
         <div class = "card-body">
             <form method="POST" action="{{route('quizzes.update', $quiz->id)}}">
                 @method('PUT')
@@ -32,8 +31,6 @@
         </div>
     </div>
     <script src="/assets/jquery.js"></script>
-
-
         <script>
             $('#isFinished').change(function(){
                 //alert("it's working.");
