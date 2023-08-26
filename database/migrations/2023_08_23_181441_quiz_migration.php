@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->longText('description')->nullable();
-            $table->timestamp('date')->nullable();
+            $table->timestamp('finished_at')->nullable();
             $table->double('duration')->nullable();
             $table->double('passing_score')->nullable();
             $table->enum('status', ['publish','draft', 'passive'])->default('draft');

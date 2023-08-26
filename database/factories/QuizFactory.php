@@ -24,7 +24,7 @@ class QuizFactory extends Factory
         return [
             'title' => $this->faker->sentence(rand(3, 8)),
             'description'=>$this->faker->text(200),
-            'date'=>$this->faker->dateTime($max = 'now', $timezone = null),
+            'finished_at'=>$this->faker->dateTime($max = 'now', $timezone = null),
             'duration'=>$this->faker->numberBetween($min = 5, $max = 120),
             'passing_score'=>$this->faker->numberBetween($min = 50, $max = 75),
         ];
