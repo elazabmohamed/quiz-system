@@ -21,13 +21,13 @@
                     @foreach ($quizzes as $quiz )
                     <tr>
                         <td>{{$quiz->title}}</td>
-                        <td>{{$quiz->date}}</td>
+                        <td>{{$quiz->finished_at}}</td>
                         <td>{{$quiz->duration}} m</td>
                         <td>{{$quiz->passing_score}}</td>
                         <td>{{$quiz->status}}</td>
                         <td>
-                            <a href="#" class="btn btn-sm btn-primary">Edit</a>
-                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                            <a href="{{route('quizzes.edit', $quiz->id)}}" class="btn btn-sm btn-primary">Edit</a>
+                            <a href="{{route('quizzes.destroy', $quiz->id)}}" class="btn btn-sm btn-danger">Delete</a>
                         </td>
                       </tr>
                     @endforeach
