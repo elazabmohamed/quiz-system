@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 
 use App\Models\User;
 use App\Models\Quiz;
+use App\Models\Question;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,6 +19,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(UserSeeder::class);
         $this->call(QuizSeeder::class);
+        $this->call(QuestionSeeder::class);
 
         // \App\Models\User::factory(5)->create();
 

@@ -15,6 +15,14 @@
                     <label>Quiz Description</label>
                     <textarea name="description" style="margin-bottom: 10px;" class="form-control" rows="4">{{$quiz->description}}</textarea>
                 </div>
+                <div class="form-group" style="width: 10rem;">
+                    <label>Passing Score *</label>
+                    <input  type="number" name="passing_score" min="1" max="500" style="margin-bottom: 10px;" class="form-control" value="{{$quiz->passing_score}}">
+                </div>
+                <div class="form-group" style="width: 10rem;">
+                    <label>Duration in minutes *</label>
+                    <input  type="number" name="duration" min="1" max="500" style="margin-bottom: 10px;" class="form-control" value="{{$quiz->duration}}">
+                </div>
                 <div class="form-group">
                     <input id="isFinished" style="margin-bottom: 10px;" @if($quiz->finished_at) checked @endif type="checkbox">
                     <label>Do you want to add an ending date?</label>
