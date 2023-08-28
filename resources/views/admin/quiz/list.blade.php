@@ -10,17 +10,19 @@
                 <thead>
                   <tr>
                     <th scope="col">Quiz Title</th>
+                    <th scope="col">Question Number</th>
                     <th scope="col">Date</th>
                     <th scope="col">Duration</th>
                     <th scope="col">Passing Score</th>
                     <th scope="col">Status</th>
-                    <th scope="col">Options</th>
+                    <th scope="col" style="width: 13rem;">Options</th>
                   </tr>
                 </thead>
                 <tbody>
                     @foreach ($quizzes as $quiz )
                     <tr>
                         <td>{{$quiz->title}}</td>
+                        <td>{{$quiz->questions_count}}</td>
                         <td>{{$quiz->finished_at}}</td>
                         <td>{{$quiz->duration}} min</td>
                         <td>{{$quiz->passing_score}}</td>
