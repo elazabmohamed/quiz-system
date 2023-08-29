@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamp('finished_at')->nullable();
             $table->integer('duration')->nullable();
             $table->integer('passing_score')->nullable();
-            $table->enum('status', ['publish','draft', 'passive'])->default('draft');
+            $table->enum('status', ['active','draft', 'passive'])->default('draft');
 
             $table->timestamps();
         });

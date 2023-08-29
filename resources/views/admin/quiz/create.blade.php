@@ -23,6 +23,7 @@
                     <label>Duration in minutes *</label>
                     <input  type="number" name="duration" min="1" max="500" style="margin-bottom: 10px;" class="form-control" value="{{old('passing_score')}}">
                 </div>
+
                 <div class="form-group">
                     <input id="isFinished" style="margin-bottom: 10px;" @if(old('finished_at')) checked @endif type="checkbox">
                     <label>Do you want to add an ending date?</label>

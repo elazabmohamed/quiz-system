@@ -24,6 +24,15 @@
                     <input  type="number" name="duration" min="1" max="500" style="margin-bottom: 10px;" class="form-control" value="{{$quiz->duration}}">
                 </div>
                 <div class="form-group">
+                    <label>Status</label>
+                    <select name="status" style="margin-bottom: 20px;" class="form-control">
+                        <option @if($quiz->status==='active') selected @endif value="active">Active</option>
+                        <option @if($quiz->status==='draft') selected @endif value="draft">Draft</option>
+                        <option @if($quiz->status==='passive') selected @endif value="passive">Passive</option>
+                    </select>    
+                </div>
+
+                <div class="form-group">
                     <input id="isFinished" style="margin-bottom: 10px;" @if($quiz->finished_at) checked @endif type="checkbox">
                     <label>Do you want to add an ending date?</label>
                 </div>

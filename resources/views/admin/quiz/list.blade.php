@@ -14,7 +14,7 @@
                     <th scope="col">Date</th>
                     <th scope="col">Duration</th>
                     <th scope="col">Passing Score</th>
-                    <th scope="col">Status</th>
+                    <th scope="col" style="width: 3rem;">Status</th>
                     <th scope="col" style="width: 13rem;">Options</th>
                   </tr>
                 </thead>
@@ -26,7 +26,19 @@
                         <td>{{$quiz->finished_at}}</td>
                         <td>{{$quiz->duration}} min</td>
                         <td>{{$quiz->passing_score}}</td>
-                        <td>{{$quiz->status}}</td>
+                        <td>
+                          @switch($quiz->status)
+                            @case('active')
+                              <span class="btn btn-sm btn-success">Active</span>
+                            @break
+                            @case('passive')
+                              <span class="btn btn-sm btn-secondary">Passive</span>
+                            @break
+                            @case('draft')
+                              <span class="btn btn-sm btn-warning">Draft</span>
+                            @break
+                          @endswitch
+                        </td>
                         <td>
                             <a href="{{route('quizzes.edit', $quiz->id)}}" class="btn btn-sm btn-primary">Edit</a>
                             <a href="{{route('questions.index', $quiz->id)}}" class="btn btn-sm btn-info">Questions</a>
