@@ -2,10 +2,10 @@
     <x-slot name="header">
         Quizzes
     </x-slot>
-    <a href="{{route('quizzes.create')}}" class="btn btn-outline-primary" style="margin-bottom: 10px;">Create Quiz</a>
     <div class="card">
         
         <div class = "card-body">
+          <a href="{{route('quizzes.create')}}" class="btn btn-outline-primary float-right" style="margin-bottom: 10px;">Create Quiz</a>
             <table class="table table-bordered table-sm">
                 <thead>
                   <tr>
