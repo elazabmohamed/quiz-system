@@ -15,7 +15,16 @@ class QuizController extends Controller
      */
     public function index()
     {
-        $quizzes = \App\Models\Quiz::withCount('questions')->paginate(10);
+        $quizzes = \App\Models\Quiz::withCount('questions');
+        if(request()->get('title')){
+            $quizzes = $quizzes->where('title', 'LIKE', "%".request()->get('title')."%");
+        }
+
+        if(request()->get('status')){
+            $quizzes = $quizzes->where('status', request()->get('status'));
+        }
+        
+        $quizzes = $quizzes->paginate(10);
         return view('admin.quiz.list', compact('quizzes'));
     }
 

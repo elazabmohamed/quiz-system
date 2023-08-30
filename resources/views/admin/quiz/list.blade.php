@@ -4,8 +4,28 @@
     </x-slot>
     <div class="card">
         
-        <div class = "card-body">
-          <a href="{{route('quizzes.create')}}" class="btn btn-outline-primary float-right" style="margin-bottom: 10px;">Create Quiz</a>
+      <div class = "card-body">
+        <a href="{{route('quizzes.create')}}" class="btn btn-outline-primary float-right" style="margin-bottom: 10px;">Create Quiz</a>
+
+          <form method="GET" action="">
+            <table>
+              <thead>
+                <tr>
+                  <th><input type="text" name="title" value="{{request()->get('title')}}" placeholder="Search Quiz" class="form-control"></th>
+                  <th>
+                    <select  name="status" onchange="this.form.submit()">
+                    <option value="">Select Status</option>
+                    <option @if(request()->get('status')=="active") selected @endif value="active">Active</option>
+                    <option @if(request()->get('status')=="passive") selected @endif value="passive">Passive</option>
+                    <option @if(request()->get('status')=="draft") selected @endif value="draft">Draft</option>
+                    </select>
+                </th>
+                <th><a href="{{route('quizzes.index')}}" class="btn btn-secondary">Clear</th>
+                </tr>
+              </thead>
+            </table>
+          </form>
+
             <table class="table table-bordered table-sm">
                 <thead>
                   <tr>
@@ -49,7 +69,7 @@
                 </tbody>
               </table>
         
-              {{$quizzes->links()}}
+              {{$quizzes->withQueryString()->links()}}
         </div>
     </div>
     
