@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 Route::group(['middleware'=> 'auth'], function(){
     Route::get('dashboard', [MainController::class, 'dashboard'])->name('dashboard');
+    Route::get('quiz/{slug}', [MainController::class, 'quiz_detail'])->name('quiz.detail');
 });
 
 // Route::middleware([

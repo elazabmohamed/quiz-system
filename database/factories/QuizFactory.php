@@ -21,9 +21,11 @@ class QuizFactory extends Factory
      */
     public function definition(): array
     {
+        $title =$this->faker->sentence(rand(3, 8));
         return [
-            'title' => $this->faker->sentence(rand(3, 8)),
+            'title' => $title,
             'description'=>$this->faker->text(200),
+            'slug'=>Str::slug($title),
             'finished_at'=>$this->faker->dateTime($max = 'now', $timezone = null),
             'duration'=>$this->faker->numberBetween($min = 5, $max = 120),
             'passing_score'=>$this->faker->numberBetween($min = 50, $max = 75),
