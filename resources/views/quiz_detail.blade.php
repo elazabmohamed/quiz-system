@@ -27,15 +27,17 @@
                             Questions
                           <span class="">{{$quiz->questions_count}}</span>
                         </li>
+                        @if($quiz->passing_score)
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                           Passing Score
-                          <span class="">{{$quiz->passing_scor }}</span>
+                          <span class="">{{$quiz->passing_score}}</span>
                         </li>
+                        @endif
                       </ul>
                 </div>
             </div>
           </p>
-          <a href="#" class="btn btn-outline-primary mt-2">Take Quiz</a>
+          <a href="{{route('quiz.join', $quiz->slug)}}" class="btn btn-outline-primary mt-2">Take Quiz</a>
         </div>
       </div>
 
