@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\Quiz;
 use App\Models\Question;
+use App\Models\Answer;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,7 +21,8 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(QuizSeeder::class);
         $this->call(QuestionSeeder::class);
-
+        $this->call(AnswerSeeder::class);
+        $this->call(ResultSeeder::class);
         // \App\Models\User::factory(5)->create();
 
         // \App\Models\User::factory()->create([

@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('quiz_id');
             $table->longText('question');
-            //$table->longText('image');
             $table->longText('answer1');
             $table->longText('answer2');
             $table->longText('answer3');

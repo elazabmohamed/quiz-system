@@ -4,7 +4,8 @@
     </x-slot>
 
 
-        <form method="POST" action="#">
+        <form method="POST" action="{{route('quiz.result', $quiz->slug)}}">
+            @csrf
             @foreach ($quiz->questions as $question )
             {{$loop->iteration}}.  <strong> {{$question->question}}</strong>
                 <div class="form-check">
@@ -32,7 +33,7 @@
                     </label>
                 </div>
                 <hr>
-
+  
             @endforeach 
             <button class="btn btn-success btn-block mt-4">Finish Quiz</button>
         </form>
