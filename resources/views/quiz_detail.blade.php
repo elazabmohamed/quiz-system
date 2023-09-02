@@ -13,6 +13,17 @@
                 </div>
                 <div class="col-md-4">
                     <ul class="list-group">
+                      @if($quiz->my_result !==null && $quiz->my_result->score < $quiz->passing_score)
+                      <li class="list-group-item d-flex justify-content-between align-items-center bg-danger text-white ">
+                        My Score [Failed]
+                        <span class="">{{$quiz->my_result->score}}%</span>
+                      </li>
+                      @elseif($quiz->my_result !==null && $quiz->my_result->score >= $quiz->passing_score)
+                      <li class="list-group-item d-flex justify-content-between align-items-center bg-success text-white ">
+                          My Score [Passed]
+                          <span class="">{{$quiz->my_result->score}}%</span>
+                      </li>
+                      @endif
                         @if($quiz->finished_at)
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                           Ends at
@@ -30,18 +41,17 @@
                         @if($quiz->passing_score)
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                           Passing Score
-                          <span class="">{{$quiz->passing_score}}</span>
+                          <span class="">{{$quiz->passing_score}}%</span>
                         </li>
                         @endif
-                        @if($quiz->my_result !==null && $quiz->my_result->score < $quiz->passing_score)
-                        <li class="list-group-item d-flex justify-content-between align-items-center bg-danger">
-                          My Score [Failed]
-                          <span class="">{{$quiz->my_result->score}}</span>
+                        @if($quiz->details)
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Participants
+                          <span class="">{{$quiz->details['join_count']}}</span>
                         </li>
-                        @elseif($quiz->my_result !==null && $quiz->my_result->score > $quiz->passing_score)
-                        <li class="list-group-item d-flex justify-content-between align-items-center bg-success">
-                            My Score [Passed]
-                            <span class="">{{$quiz->my_result->score}}</span>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Average Score
+                          <span class="">{{$quiz->details['average']}}%</span>
                         </li>
                         @endif
                       </ul>

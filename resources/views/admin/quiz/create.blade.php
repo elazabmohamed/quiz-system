@@ -21,11 +21,11 @@
                 </div>
                 <div class="form-group" style="width: 10rem;">
                     <label>Passing Score *</label>
-                    <input  type="number" name="passing_score" min="1" max="500" style="margin-bottom: 10px;" class="form-control" value="{{old('passing_score')}}">
+                    <input  type="number" name="passing_score" min="1" max="100" placeholder="%" style="margin-bottom: 10px;" class="form-control" value="{{old('passing_score')}}">
                 </div>
                 <div class="form-group" style="width: 10rem;">
-                    <label>Duration in minutes *</label>
-                    <input  type="number" name="duration" min="1" max="500" style="margin-bottom: 10px;" class="form-control" value="{{old('passing_score')}}">
+                    <label>Duration *</label>
+                    <input  type="number" name="duration" min="1" max="500" placeholder="min" style="margin-bottom: 10px;" class="form-control" value="{{old('passing_score')}}">
                 </div>
 
                 <div class="form-group">

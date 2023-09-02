@@ -14,6 +14,23 @@ class Quiz extends Model
 
     protected $fillable=['title','description',  'passing_score', 'duration', 'status', 'slug'];
     protected $dates=['finished_at'];
+    protected $appends = ['details'];
+
+
+    public function getDetailsAttribute(){
+        if($this->results()->count()>0){
+            return [
+                'average'=>round($this->results()->get()->avg('score')),
+                'join_count'=>$this->results()->get()->where('user_id')->count()
+            ];
+        }
+        return null;
+    }
+
+    public function results(){
+        return $this->hasMany('App\Models\Result');
+    }
+
 
     public function my_result(){
         return $this->hasOne('App\Models\Result')->where('user_id', auth()->user()->id);

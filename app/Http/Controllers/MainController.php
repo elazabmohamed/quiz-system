@@ -23,7 +23,7 @@ class MainController extends Controller
     }
 
     public function quiz_detail($slug){
-        $quiz= Quiz::whereSlug($slug)->with('my_result')->withCount('questions')->first()?? abort(404, 'Quiz not found.');
+        $quiz= Quiz::whereSlug($slug)->with('my_result', 'results')->withCount('questions')->first()?? abort(404, 'Quiz not found.');
         return view('quiz_detail', compact('quiz'));
     }
 
@@ -31,8 +31,10 @@ class MainController extends Controller
         
         $quiz = Quiz::with('questions')->whereSlug($slug)->first() ?? abort(404, 'Quiz not found.');
         $correct=0;
-        //dd([$quiz, $request->post()]);
-        //return $request->post();
+
+        if($quiz->my_result){
+            abort(404, "You've already taken this quiz.");
+            }
 
         foreach($quiz->questions as $question){
             //echo $question->id.'-'.$question->correct_answer.'/'.$request->post($request->id).'<br>';
