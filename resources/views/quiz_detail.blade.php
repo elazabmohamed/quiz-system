@@ -33,11 +33,26 @@
                           <span class="">{{$quiz->passing_score}}</span>
                         </li>
                         @endif
+                        @if($quiz->my_result !==null && $quiz->my_result->score < $quiz->passing_score)
+                        <li class="list-group-item d-flex justify-content-between align-items-center bg-danger">
+                          My Score [Failed]
+                          <span class="">{{$quiz->my_result->score}}</span>
+                        </li>
+                        @elseif($quiz->my_result !==null && $quiz->my_result->score > $quiz->passing_score)
+                        <li class="list-group-item d-flex justify-content-between align-items-center bg-success">
+                            My Score [Passed]
+                            <span class="">{{$quiz->my_result->score}}</span>
+                        </li>
+                        @endif
                       </ul>
                 </div>
             </div>
           </p>
+          @if($quiz->my_result)
+          <button class="btn btn-danger mt-2" disabled>You've already taken this quiz</button>
+          @elseif (!$quiz->my_result)
           <a href="{{route('quiz.join', $quiz->slug)}}" class="btn btn-outline-primary mt-2">Take Quiz</a>
+          @endif
         </div>
       </div>
 
