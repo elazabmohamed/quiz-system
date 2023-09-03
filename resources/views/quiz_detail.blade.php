@@ -10,6 +10,73 @@
             <div class="row">
                 <div class="col-md-8">
                     <h5 class="card-title">{{$quiz->description}}</h5>
+
+                    <form method="GET" action="">
+                      <div class="card mt-2">
+                        <div class="card-body">
+                          <th>
+                            <select name="filter" onchange="this.form.submit()">
+                            <option value="desc">Filter Students</option>
+                            <option @if(request()->get('filter')=="desc") selected @endif value="desc">Most successful to most unsuccessful</option>
+                            <option  @if(request()->get('filter')=="asc") selected @endif value="asc">Least successful to most successful</option>
+                            <option @if(request()->get('filter')=="passed") selected @endif value="passed">Only passed students</option>
+                            <option @if(request()->get('filter')=="failed") selected @endif value="failed">Only failed students</option>
+                            </select>
+                            <input type="hidden">
+                        </th>
+                      
+                          <ul class="list-group mt-4 " data-bs-spy="scroll">
+                            @switch(request()->get('filter'))
+                              @case('desc')
+                              @foreach ($quiz->descResults as $result )
+                              <img src="{{$result->user->profile_photo_path}}">
+                              <li class="list-group-item d-flex justify-content-between align-items-center">{{$result->user->name}}
+                              <span class="">{{$result->score}}</span>
+                              </li>
+                              @endforeach
+                                @break
+                              @case('asc')
+                              @foreach ($quiz->ascResults as $result )
+                              @if ($quiz->passing_score <= $result->score)
+                              <li class="list-group-item d-flex justify-content-between align-items-center">{{$result->user->name}}
+                              <span class="">{{$result->score}}</span>
+                              </li>
+                              @endif
+                              @endforeach
+                                @break
+                              @case('passed')
+                              @foreach ($quiz->descResults as $result )
+                              @if ($quiz->passing_score <= $result->score)
+                              <li class="list-group-item d-flex justify-content-between align-items-center bg-success text-white">{{$result->user->name}}
+                                <span class="">{{$result->score}}</span>
+                                </li>                                
+                              @endif
+                              @endforeach
+                                @break
+                              @case('failed')
+                              @foreach ($quiz->descResults as $result )
+                              @if ($quiz->passing_score > $result->score)
+                              <li class="list-group-item d-flex justify-content-between align-items-center bg-danger text-white">{{$result->user->name}}
+                                <span class="">{{$result->score}}</span>
+                                </li>                                
+                              @endif
+                              @endforeach
+                                @break
+                              @default
+                              @foreach ($quiz->descResults as $result )
+                              <li class="list-group-item d-flex justify-content-between align-items-center">{{$result->user->name}}
+                              <span class="">{{$result->score}}</span>
+                              </li>
+                              @endforeach
+                            @endswitch
+
+
+                          </ul>
+                        </div>
+                      </div>
+                    </form>
+
+
                 </div>
                 <div class="col-md-4">
                     <ul class="list-group">
@@ -23,6 +90,13 @@
                           My Score [Passed]
                           <span class="">{{$quiz->my_result->score}}%</span>
                       </li>
+                      @endif
+                      @if ($quiz->my_result !==null)
+                      <li class="list-group-item d-flex justify-content-between align-items-center ">
+                        My Rank
+                        <span class="">{{$quiz->my_rank}}</span>
+                    </li>
+                        
                       @endif
                         @if($quiz->finished_at)
                         <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -56,69 +130,7 @@
                         @endif
                       </ul>
 
-                    <form method="GET" action="">
-                      <div class="card mt-2">
-                        <div class="card-body">
-                          <th>
-                            <select name="filter" onchange="this.form.submit()">
-                            <option value="desc">Filter Students</option>
-                            <option @if(request()->get('filter')=="desc") selected @endif value="desc">Most successful to most unsuccessful</option>
-                            <option  @if(request()->get('filter')=="asc") selected @endif value="asc">Least successful to most successful</option>
-                            <option @if(request()->get('filter')=="passed") selected @endif value="passed">Only passed students</option>
-                            <option @if(request()->get('filter')=="failed") selected @endif value="failed">Only failed students</option>
-                            </select>
-                            <input type="hidden">
-                        </th>
-                      
-                          <ul class="list-group mt-4 " data-bs-spy="scroll">
-                            @switch(request()->get('filter'))
-                              @case('desc')
-                              @foreach ($quiz->descResults as $result )
-                              <li class="list-group-item d-flex justify-content-between align-items-center">{{$result->user->name}}
-                              <span class="">{{$result->score}}</span>
-                              </li>
-                              @endforeach
-                                @break
-                              @case('asc')
-                              @foreach ($quiz->ascResults as $result )
-                              @if ($quiz->passing_score <= $result->score)
-                              <li class="list-group-item d-flex justify-content-between align-items-center">{{$result->user->name}}
-                              <span class="">{{$result->score}}</span>
-                              </li>
-                              @endif
-                              @endforeach
-                                @break
-                              @case('passed')
-                              @foreach ($quiz->descResults as $result )
-                              @if ($quiz->passing_score <= $result->score)
-                              <li class="list-group-item d-flex justify-content-between align-items-center">{{$result->user->name}}
-                                <span class="">{{$result->score}}</span>
-                                </li>                                
-                              @endif
-                              @endforeach
-                                @break
-                              @case('failed')
-                              @foreach ($quiz->descResults as $result )
-                              @if ($quiz->passing_score > $result->score)
-                              <li class="list-group-item d-flex justify-content-between align-items-center">{{$result->user->name}}
-                                <span class="">{{$result->score}}</span>
-                                </li>                                
-                              @endif
-                              @endforeach
-                                @break
-                              @default
-                              @foreach ($quiz->descResults as $result )
-                              <li class="list-group-item d-flex justify-content-between align-items-center">{{$result->user->name}}
-                              <span class="">{{$result->score}}</span>
-                              </li>
-                              @endforeach
-                            @endswitch
 
-
-                          </ul>
-                        </div>
-                      </div>
-                    </form>
 
                 </div>
             </div>
