@@ -12,8 +12,8 @@ class Quiz extends Model
     use HasFactory;
     use Sluggable;
 
-    protected $fillable=['title','description',  'passing_score', 'duration', 'status', 'slug'];
-    protected $dates=['finished_at'];
+    protected $fillable=['title','description',  'passing_score', 'duration', 'status', 'slug', 'finished_at'];
+    //protected $dates=['finished_at'];
     protected $appends = ['details', 'my_rank'];
 
     public function getMyRankAttribute(){

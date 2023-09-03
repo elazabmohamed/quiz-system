@@ -5,7 +5,12 @@
 
     <div class="row">
         <div class="col-md-8">
+          <div class="card">
+
+          <div class="card-header bg-secondary text-white">Active Quizzes</div>
             <div class="list-group">
+
+
                 @foreach ( $quizzes as $quiz )
                     
                 <a href="{{route('quiz.detail', $quiz->slug)}}" class="list-group-item list-group-item-action flex-column align-items-start">
@@ -23,8 +28,22 @@
                     {{$quizzes->links()}}
                 </div>
               </div>
+          </div>
         </div>
-        <div class="col-md-4">My Scores</div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-header">My Scores</div>
+            <ul class="list-group list-group-flush">
+              @foreach ($results as $result )
+              <li class="list-group-item link-primary"><a href="{{route('quiz.detail', $result->quiz->slug)}}">{{$result->quiz->title}} 
+                <strong class="float-right">{{$result->score}}</strong>
+
+              </li>
+
+              @endforeach
+            </ul>
+          </div>
+        </div>
     </div>
 
 </x-app-layout>

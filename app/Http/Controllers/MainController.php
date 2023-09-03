@@ -12,12 +12,18 @@ class MainController extends Controller
 {
     public function dashboard(){
         $quizzes = Quiz::where('status','active')->withCount('questions')->paginate(5);
-        return view('dashboard', compact('quizzes'));
+
+        $results = auth()->user()->results;
+        return view('dashboard', compact('quizzes', 'results'));
     }
 
     public function quiz($slug){
 
-       $quiz = Quiz::whereSlug($slug)->with('questions')->first();
+    $quiz = Quiz::whereSlug($slug)->with('questions.my_answers')->first()?? abort(404, 'Quiz not found.');
+
+       if($quiz->my_result){
+        return view('quiz_result', compact('quiz'));
+       }
 
         return view('quiz', compact('quiz'));
     }
