@@ -105,6 +105,10 @@
                             <x-dropdown-link href="{{ route('quizzes.index') }}">
                                 {{ __('Quizzes') }}
                             </x-dropdown-link>
+
+                            <x-dropdown-link href="{{ route('users.index') }}">
+                                {{ __('Students') }}
+                            </x-dropdown-link>
                             @endif
 
                             <div class="block px-4 py-2 text-xs text-gray-400">

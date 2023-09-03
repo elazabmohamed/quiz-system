@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\QuizController;
 use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\MainController;
+
+use App\Http\Controllers\Admin\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,4 +44,7 @@ Route::group(['middleware'=>['auth', 'isAdmin'],'prefix'=>'admin'], function(){
     Route::get('quiz/{quiz_id}/questions/{id}', [QuestionController::class, 'destroy'])->whereNumber('id')->name('questions.destroy');
     Route::resource('quizzes', QuizController::class);
     Route::resource('quiz/{quiz_id}/questions', QuestionController::class);
+
+    Route::get('users/{id}', [UserController::class, 'destroy'])->whereNumber('id')->name('users.destroy');
+    Route::resource('users', UserController::class);
 });

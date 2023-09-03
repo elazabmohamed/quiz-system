@@ -138,7 +138,7 @@
           @if($quiz->my_result)
           <button class="btn btn-danger mt-2" disabled>You've already taken this quiz</button>
           <a href="{{route('quiz.join', $quiz->slug)}}" class="btn btn-warning mt-2">View Answers</a>
-          @elseif (!$quiz->my_result && $quiz->finished_at>now())
+          @elseif (!$quiz->my_result && $quiz->finished_at>now() || !$quiz->my_result && $quiz->finished_at==null )
           <a href="{{route('quiz.join', $quiz->slug)}}" class="btn btn-outline-primary mt-2">Take Quiz</a>
           @elseif(!$quiz->my_result && $quiz->finished_at<now())
           <button class="btn btn-danger mt-2" disabled>The date of this quiz has already passed</button>

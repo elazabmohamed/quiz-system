@@ -12,11 +12,16 @@
 
 
                 @foreach ( $quizzes as $quiz )
-                    
                 <a href="{{route('quiz.detail', $quiz->slug)}}" class="list-group-item list-group-item-action flex-column align-items-start">
                   <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">{{$quiz->title}}</h5>
-                    <small>{{$quiz->finished_at ? $quiz->finished_at : null}}</small>
+                    @if ($quiz->finished_at && $quiz->finished_at>now())
+                      <small>{{$quiz->finished_at}}</small>
+                    @elseif($quiz->finished_at && $quiz->finished_at<now())
+                      <small class="bg-danger text-white px-2">{{$quiz->finished_at}} [Passed]</small>
+                    @elseif(!$quiz->finished_at)
+                      <small class="bg-secondary text-white px-2">No date added</small>
+                    @endif
                   </div>
                   <p class="mb-1">{{ Str::limit($quiz->description, 200)}}</p>
                   <small class="float-right">{{$quiz->duration}} min</small>
