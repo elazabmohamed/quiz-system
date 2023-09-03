@@ -21,7 +21,7 @@ class Quiz extends Model
         if($this->results()->count()>0){
             return [
                 'average'=>round($this->results()->get()->avg('score')),
-                'join_count'=>$this->results()->get()->where('user_id')->count()
+                'join_count'=>$this->results()->get()->where('user_id')->count(),
             ];
         }
         return null;
@@ -30,6 +30,14 @@ class Quiz extends Model
     public function results(){
         return $this->hasMany('App\Models\Result');
     }
+
+    public function descResults(){
+        return $this->results()->orderBy('score', 'desc');
+    }
+    public function ascResults(){
+        return $this->results()->orderBy('score', 'asc');
+    }
+
 
 
     public function my_result(){
