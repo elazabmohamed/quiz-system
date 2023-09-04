@@ -20,6 +20,9 @@ Generate .env if not generated and add the neccessary information like database 
 
 ```bash
 cp .env.example .env
+```
+
+```bash
 php artisan key:generate
 ```
 
@@ -96,3 +99,7 @@ Then run
 ```bash
 php artisan migrate:fresh --seed
 ```
+
+## Favicon
+
+To change your favicon, go to public/favicon.ico and replace it with your own favicon.
