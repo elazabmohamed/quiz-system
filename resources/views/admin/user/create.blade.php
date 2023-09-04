@@ -3,13 +3,14 @@
     <x-slot name="header">Add Student</x-slot>
 
     <div class="row">
-        <div class="card" style="width: 20rem; height:12rem">
+        <div class="card" style="width: 20rem; height:15rem">
 
                 <div class="form-group mt-3">
-                    <h5 class="text-danger">Password should contain;</h5>
-                    <h6 class="ml-4 mt-4">1- Uppercase charachters. (A-Z)</h6>
-                    <h6 class="ml-4 mt-4">2- Lowercase charachters. (a-z)</h6>
-                    <h6 class="ml-4 mt-4">2- Numbers. (0-9)</h6>
+                    <h1 class="text-danger h5">Password should contain;</h1>
+                    <h6 class="ml-4 mt-4">1- At least 8 characters.</h6>
+                    <h6 class="ml-4 mt-4">2- Uppercase charachters. (A-Z)</h6>
+                    <h6 class="ml-4 mt-4">3- Lowercase charachters. (a-z)</h6>
+                    <h6 class="ml-4 mt-4">4- Numbers. (0-9)</h6>
 
                 </div>
         </div>

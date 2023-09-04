@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Http\Requests\UserCreateRequest;
+use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
@@ -16,13 +16,12 @@ class UserController extends Controller
     {
         $users = User::where('type','student');
 
-        if(request()->get('studentName')){
-            $users = $users->where('name', 'LIKE', "%".request()->get('studentName')."%");
+        if(request()->get('searchQuery')){
+            $users = $users->where('name', 'LIKE', "%".request()->get('searchQuery')."%")->orWhere('email', 'LIKE', "%".request()->get('searchQuery')."%");
         }
 
         $users = $users->paginate(10);
         return view('admin.user.list', compact('users'));
-
     }
 
     /**
@@ -36,9 +35,16 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(UserCreateRequest $request)
+    public function store(UserRequest $request)
     {
-        User::create($request->post());
+
+        User::create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'password'=>bcrypt($request->password),
+        ]);
+
+        //User::create($request->post());
         return redirect()->route('users.index')->withSuccess('User Added Successfully.');
     }
 
@@ -55,15 +61,26 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = User::find($id) ?? abort(404, 'User not found.');
+        return view('admin.user.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UserRequest $request, string $id)
     {
-        //
+
+        // if ($request!=null)
+        // {
+            User::where('id', $id)->update(
+            ['name' =>$request->name, 
+            'password' => bcrypt($request->password), 
+            'email' =>$request->email ]
+            );
+        // }
+
+        return redirect()->route('users.index')->withSuccess('User Updated Successfully.');
     }
 
     /**

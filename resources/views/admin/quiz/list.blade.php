@@ -20,7 +20,7 @@
                     <option @if(request()->get('status')=="draft") selected @endif value="draft">Draft</option>
                     </select>
                 </th>
-                <th><a href="{{route('quizzes.index')}}" class="btn btn-secondary">Clear</th>
+                <th><a href="{{route('quizzes.index')}}" class="btn btn-secondary  ml-2">Clear</th>
                 </tr>
               </thead>
             </table>

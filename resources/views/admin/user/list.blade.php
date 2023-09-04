@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        Quizzes
+        Users
     </x-slot>
     <div class="card">
         
@@ -11,8 +11,8 @@
             <table>
               <thead>
                 <tr>
-                  <th><input type="text" name="studentName" value="{{request()->get('studentName')}}" placeholder="Search Student" class="form-control"></th>
-                <th><a href="{{route('users.index')}}" class="btn btn-secondary">Clear</th>
+                  <th><input type="text" name="searchQuery" value="{{request()->get('searchQuery')}}" placeholder="Search Student" class="form-control"></th>
+                <th><a href="{{route('users.index')}}" class="btn btn-secondary ml-4">Clear</th>
                 </tr>
               </thead>
             </table>
@@ -34,7 +34,7 @@
                         <td>{{$user->email}}</td>
                         <td>{{$user->type}}</td>
                         <td>
-                            <a href="#" class="btn btn-sm btn-primary">Edit</a>
+                            <a href="{{route('users.edit', $user->id)}}" class="btn btn-sm btn-primary">Edit</a>
                             <a href="{{route('users.destroy', $user->id)}}" class="btn btn-sm btn-danger">Delete</a>
                         </td>
                       </tr>

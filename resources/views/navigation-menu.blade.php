@@ -159,6 +159,22 @@
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+
+            @if(auth()->user()->type=='admin')
+            <div class="block px-4 py-2 text-xs text-gray-400">
+                {{ __('Admin') }}
+            </div>
+
+            <x-dropdown-link href="{{ route('quizzes.index') }}">
+                {{ __('Quizzes') }}
+            </x-dropdown-link>
+
+            <x-dropdown-link href="{{ route('users.index') }}">
+                {{ __('Students') }}
+            </x-dropdown-link>
+            @endif
+
+            
         </div>
 
         <!-- Responsive Settings Options -->
