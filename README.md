@@ -84,22 +84,6 @@ resources\views\components\authentication-card-logo.blade.php
 
 ```
 
-## Migrate and Seed with faker
-
-In every "Seeder" folder there's a commented line that would allow you to use the factory and seed dummy data with faker and cusomize them as you want.
-
-For example, in "database\seeders\UserSeeder.php"
-
-```bash
-//\App\Models\User::factory()->count(20)->create();
-```
-
-Then run
-
-```bash
-php artisan migrate:fresh --seed
-```
-
 ## Favicon
 
 To change your favicon, go to public/favicon.ico and replace it with your own favicon.
