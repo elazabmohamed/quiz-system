@@ -1,0 +1,12 @@
+[
+{"id":"2","user_id":"5","quiz_id":"3","score":"61","correct":"9","wrong":"5","created_at":"2023-09-03 17:07:40","updated_at":"2023-09-03 17:07:40"},
+{"id":"4","user_id":"10","quiz_id":"1","score":"78","correct":"14","wrong":"20","created_at":"2023-09-03 17:07:40","updated_at":"2023-09-03 17:07:40"},
+{"id":"5","user_id":"9","quiz_id":"5","score":"61","correct":"2","wrong":"12","created_at":"2023-09-03 17:07:40","updated_at":"2023-09-03 17:07:40"},
+{"id":"6","user_id":"10","quiz_id":"6","score":"64","correct":"11","wrong":"14","created_at":"2023-09-03 17:07:40","updated_at":"2023-09-03 17:07:40"},
+{"id":"7","user_id":"5","quiz_id":"9","score":"20","correct":"18","wrong":"11","created_at":"2023-09-03 17:07:40","updated_at":"2023-09-03 17:07:40"},
+{"id":"8","user_id":"9","quiz_id":"1","score":"10","correct":"9","wrong":"17","created_at":"2023-09-03 17:07:40","updated_at":"2023-09-03 17:07:40"},
+{"id":"11","user_id":"5","quiz_id":"9","score":"95","correct":"2","wrong":"16","created_at":"2023-09-03 17:07:40","updated_at":"2023-09-03 17:07:40"},
+{"id":"12","user_id":"2","quiz_id":"3","score":"6","correct":"3","wrong":"17","created_at":"2023-09-03 17:07:40","updated_at":"2023-09-03 17:07:40"},
+{"id":"17","user_id":"10","quiz_id":"1","score":"46","correct":"13","wrong":"15","created_at":"2023-09-03 17:07:40","updated_at":"2023-09-03 17:07:40"},
+{"id":"21","user_id":"1","quiz_id":"1","score":"45","correct":"5","wrong":"6","created_at":"2023-09-03 17:09:29","updated_at":"2023-09-03 17:09:29"}
+]
