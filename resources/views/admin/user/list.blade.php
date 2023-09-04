@@ -11,7 +11,7 @@
             <table>
               <thead>
                 <tr>
-                  <th><input type="text" name="searchQuery" value="{{request()->get('searchQuery')}}" placeholder="Search Student" class="form-control"></th>
+                  <th><input type="text" name="searchQuery" value="{{request()->get('searchQuery')}}" placeholder="Search User" class="form-control"></th>
                   <th>
                     <select  name="type" onchange="this.form.submit()">
                     <option value="">Select Type</option>
