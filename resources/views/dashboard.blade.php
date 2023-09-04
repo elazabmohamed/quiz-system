@@ -7,7 +7,7 @@
         <div class="col-md-8">
           <div class="card">
 
-          <div class="card-header bg-secondary text-white">Active Quizzes</div>
+          <div class="card-header bg-success text-white">Active Quizzes</div>
             <div class="list-group">
 
 
@@ -37,7 +37,7 @@
         </div>
         <div class="col-md-4">
           <div class="card">
-            <div class="card-header">My Scores</div>
+            <div class="card-header bg-secondary text-white">My Scores</div>
             <ul class="list-group list-group-flush">
               @foreach ($results as $result )
               <li class="list-group-item link-primary"><a href="{{route('quiz.detail', $result->quiz->slug)}}">{{$result->quiz->title}} 

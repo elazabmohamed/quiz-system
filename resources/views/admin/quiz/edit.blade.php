@@ -4,7 +4,7 @@
 
     <div class="card">
         <div class = "card-body">
-            <a href="{{route('quizzes.index')}}" class="btn btn-outline-primary " style="margin-bottom: 10px;">Go Back</a>
+            <a href="{{route('quizzes.index')}}" class="btn btn-outline-warning " style="margin-bottom: 10px;">Go Back</a>
 
 
             <form method="POST" action="{{route('quizzes.update', $quiz->id)}}">

@@ -17,7 +17,7 @@
         <div class= "col-6">
             <div class="card mx-auto" style="width: 30rem;">
                 <div class = "card-body mx-auto " >
-                    <a href="{{route('users.index')}}" class="btn btn-outline-primary " style="margin-bottom: 10px;">Go Back</a>
+                    <a href="{{route('users.index')}}" class="btn btn-outline-warning " style="margin-bottom: 10px;">Go Back</a>
         
                     <form method="POST" action="{{route('users.store')}}">
                         @csrf

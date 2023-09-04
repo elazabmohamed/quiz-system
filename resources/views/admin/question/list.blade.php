@@ -7,7 +7,7 @@
         <div class = "card-body">
           <a href="{{route('questions.create', $quiz->id)}}" class="btn btn-outline-primary float-right" style="margin-bottom: 10px;">Add a question</a>
 
-          <a href="{{route('quizzes.index')}}" class="btn btn-outline-primary float-left" style="margin-bottom: 10px;">Go Back</a>
+          <a href="{{route('quizzes.index')}}" class="btn btn-outline-warning float-left" style="margin-bottom: 10px;">Go Back</a>
 
 
             <table class="table table-bordered table-sm">

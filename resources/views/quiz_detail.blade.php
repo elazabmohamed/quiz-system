@@ -9,12 +9,14 @@
           <p class="card-text">
             <div class="row">
                 <div class="col-md-8">
-                    <h5 class="card-title">{{$quiz->description}}</h5>
+                  <h4 class="text-secondary">Description:</h4>
+                    <h5 class="card-title mt-2">{{$quiz->description}}</h5>
 
                     <form method="GET" action="">
-                      <div class="card mt-2">
+                      <div class="card mt-4">
                         <div class="card-body">
                           <th>
+                            <h4 class="text-secondary mb-2">Filter:</h4>
                             <select name="filter" onchange="this.form.submit()">
                             <option value="desc">Filter Students</option>
                             <option @if(request()->get('filter')=="desc") selected @endif value="desc">Most successful to most unsuccessful</option>

@@ -5,7 +5,7 @@
     <div class="card">
 
         <div class = "card-body">
-            <a href="{{route('questions.index', $quiz->id)}}" class="btn btn-outline-primary" style="margin-bottom: 10px;">Go Back</a>
+            <a href="{{route('questions.index', $quiz->id)}}" class="btn btn-outline-warning" style="margin-bottom: 10px;">Go Back</a>
 
 
             <form method="POST" action="{{route('questions.store', $quiz->id)}}">
