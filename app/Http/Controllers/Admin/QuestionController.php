@@ -15,6 +15,7 @@ class QuestionController extends Controller
     public function index(string $id)
     {
         $quiz = Quiz::whereId($id)->with('questions')->first() ?? abort(404, 'Quiz not found');
+
         return view('admin.question.list', compact('quiz'));
     }
 

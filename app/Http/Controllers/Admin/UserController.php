@@ -15,10 +15,19 @@ class UserController extends Controller
     public function index()
     {
 
-        $users = User::where('type','student');
+        $users = User::where('type','admin')->orWhere('type', 'student');
+        if(request()->get('type')=='admin'){
+            $users = User::where('type','admin');
+        }
+
+        if(request()->get('type')=='student'){
+            $users = User::where('type','student');
+        }
+
         if(request()->get('searchQuery')){
             $users = $users->where('name', 'LIKE', "%".request()->get('searchQuery')."%")->orWhere('email', 'LIKE', "%".request()->get('searchQuery')."%");
         }
+
 
         $users = $users->paginate(10);
         return view('admin.user.list', compact('users'));

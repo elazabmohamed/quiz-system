@@ -5,13 +5,20 @@
     <div class="card">
         
       <div class = "card-body">
-        <a href="{{route('users.create')}}" class="btn btn-outline-primary float-right" style="margin-bottom: 10px;">Add Student</a>
+        <a href="{{route('users.create')}}" class="btn btn-outline-primary float-right" style="margin-bottom: 10px;">Add User</a>
 
           <form method="GET" action="">
             <table>
               <thead>
                 <tr>
                   <th><input type="text" name="searchQuery" value="{{request()->get('searchQuery')}}" placeholder="Search Student" class="form-control"></th>
+                  <th>
+                    <select  name="type" onchange="this.form.submit()">
+                    <option value="">Select Type</option>
+                    <option @if(request()->get('type')=="student") selected @endif value="student">Student</option>
+                    <option @if(request()->get('type')=="admin") selected @endif value="admin">Admin</option>
+                    </select>
+                </th>
                 <th><a href="{{route('users.index')}}" class="btn btn-secondary ml-4">Clear</th>
                 </tr>
               </thead>
