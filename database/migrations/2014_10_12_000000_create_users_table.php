@@ -26,10 +26,19 @@ return new class extends Migration
         });
         DB::table('users')->insert(
             array(
+                'id'=>'1',
                 'name' =>'Mohamed Elazab',
-                'email' => 'm@gmail.com',
-                'password'=>bcrypt('mohamed123'),
+                'email' => 'admin@gmail.com',
+                'password'=>bcrypt('admin123'),
                 'type'=>'admin'
+            ));
+        DB::table('users')->insert(
+            array(
+                'id'=>'3',
+                'name' =>'Mohamed Elazab Student',
+                'email' => 'student@gmail.com',
+                'password'=>bcrypt('student123'),
+                'type'=>'student'
             ));
 
 

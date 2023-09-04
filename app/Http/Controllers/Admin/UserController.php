@@ -14,8 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::where('type','student');
 
+        $users = User::where('type','student');
         if(request()->get('searchQuery')){
             $users = $users->where('name', 'LIKE', "%".request()->get('searchQuery')."%")->orWhere('email', 'LIKE', "%".request()->get('searchQuery')."%");
         }
