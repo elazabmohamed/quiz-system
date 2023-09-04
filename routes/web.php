@@ -28,15 +28,6 @@ Route::group(['middleware'=> 'auth'], function(){
     Route::post('quiz/{slug}/result', [MainController::class, 'result'])->name('quiz.result');
 });
 
-// Route::middleware([
-//     'auth:sanctum',
-//     config('jetstream.auth_session'),
-//     'verified',
-// ])->group(function () {
-//     Route::get('/dashboard', function () {
-//         return view('dashboard');
-//     })->name('dashboard');
-// });
 
 //  adding or removing student, adding exams
 Route::group(['middleware'=>['auth', 'isAdmin'],'prefix'=>'admin'], function(){
