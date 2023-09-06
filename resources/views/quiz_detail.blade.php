@@ -2,8 +2,10 @@
     <x-slot name="header">
         {{$quiz->title}}
     </x-slot>
-    
+    <a href="{{route('dashboard')}}" class="btn btn-warning " style="margin-bottom: 10px;">Go Back</a>
+
     <div class="card" >
+      
         <div class="card-body">
 
           <p class="card-text">
