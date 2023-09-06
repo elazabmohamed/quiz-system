@@ -1,6 +1,6 @@
 # Quiz System
 
-A quiz system with admin panel made using Laravel, Mysql, and Bootstrap.
+A quiz system with admin panel made using Laravel, Jetstream, Mysql, and Bootstrap.
 
 ## Install
 
