@@ -23,7 +23,7 @@ class UserRequest extends FormRequest
     {
         return [
             'name'=>'required|min:3|max:200',
-            'email'=>'required|min:4|max:200|email',
+            'email'=>'required|min:4|max:200|email|unique:users',
             'password'=>['required','min:8', 'max:240', 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x]).*$/']
         ];
     }

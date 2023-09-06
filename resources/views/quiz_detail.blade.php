@@ -84,7 +84,7 @@
                     <ul class="list-group">
                       @if($quiz->my_result !==null && $quiz->my_result->score < $quiz->passing_score)
                       <li class="list-group-item d-flex justify-content-between align-items-center bg-danger text-white ">
-                        My Score [Failed]
+                        My Score [Failed] 
                         <span class="">{{$quiz->my_result->score}}%</span>
                       </li>
                       @elseif($quiz->my_result !==null && $quiz->my_result->score >= $quiz->passing_score)

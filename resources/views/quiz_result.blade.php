@@ -18,9 +18,9 @@
                       {{$question->answer1}}
                     </label>
                     @if('answer1' == $question->correct_answer)
-                        <i class="text-success text-uppercase "> correct answer</i>
+                        <i class="badge bg-success text-success text-uppercase text-white"> correct answer</i>
                     @elseif('answer1'==$question->my_answers->answer)
-                        <i class="text-success text-uppercase "> your answer</i>
+                        <i class="badge bg-danger text-uppercase text-white"> your answer</i>
                     @endif
                 </div>
                     <div class="form-check">
@@ -28,9 +28,9 @@
                         {{$question->answer2}}
                     </label>
                     @if('answer2' == $question->correct_answer)
-                        <i class="text-success text-uppercase"> correct answer</i>
+                        <i class="badge bg-success text-success text-uppercase text-white"> correct answer</i>
                     @elseif('answer2'==$question->my_answers->answer)
-                        <i class="text-success text-uppercase "> your answer</i>
+                        <i class="badge bg-danger text-uppercase text-white"> your answer</i>
                     @endif
                 </div>
                     <div class="form-check">
@@ -38,9 +38,9 @@
                         {{$question->answer3}}
                     </label>
                     @if('answer3' == $question->correct_answer)
-                        <i class="text-success text-uppercase"> correct answer</i>
+                        <i class="badge bg-success text-success text-uppercase text-white"> correct answer</i>
                     @elseif('answer3'==$question->my_answers->answer)
-                        <i class="text-success text-uppercase "> your answer</i>
+                        <i class="badge bg-danger text-uppercase text-white"> your answer</i>
                     @endif
                 </div>
                     <div class="form-check">
@@ -48,9 +48,9 @@
                         {{$question->answer4}}
                     </label>
                     @if('answer4' == $question->correct_answer)
-                        <i class="text-success text-uppercase"> correct answer</i>
+                        <i class="badge bg-success text-success text-uppercase text-white"> correct answer</i>
                     @elseif('answer4'==$question->my_answers->answer)
-                        <i class="text-success text-uppercase "> your answer</i>
+                        <i class="badge bg-danger text-uppercase text-white"> your answer</i>
                     @endif
                 </div>
                 @if($loop->last)

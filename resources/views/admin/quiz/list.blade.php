@@ -49,13 +49,13 @@
                         <td>
                           @switch($quiz->status)
                             @case('active')
-                              <span class="btn btn-sm btn-success">Active</span>
+                              <span class="badge bg-success">Active</span>
                             @break
                             @case('passive')
-                              <span class="btn btn-sm btn-secondary">Passive</span>
+                              <span class="badge bg-danger">Passive</span>
                             @break
                             @case('draft')
-                              <span class="btn btn-sm btn-warning">Draft</span>
+                              <span class="badge bg-warning text-black">Draft</span>
                             @break
                           @endswitch
                         </td>

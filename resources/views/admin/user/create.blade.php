@@ -1,6 +1,6 @@
 
 <x-app-layout>
-    <x-slot name="header">Add Student</x-slot>
+    <x-slot name="header">Add User</x-slot>
 
     <div class="row">
         <div class="card" style="width: 20rem; height:15rem">

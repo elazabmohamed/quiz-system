@@ -16,11 +16,11 @@
                   <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">{{$quiz->title}}</h5>
                     @if ($quiz->finished_at && $quiz->finished_at>now())
-                      <small>{{$quiz->finished_at}}</small>
+                      <small class="badge bg-secondary ">{{$quiz->finished_at}}</small>
                     @elseif($quiz->finished_at && $quiz->finished_at<now())
-                      <small class="bg-danger text-white px-2">{{$quiz->finished_at}} [Passed]</small>
+                      <small class="badge bg-danger text-white px-2">{{$quiz->finished_at}} [Passed]</small>
                     @elseif(!$quiz->finished_at)
-                      <small class="bg-secondary text-white px-2">No date added</small>
+                      <small class="badge bg-secondary text-white px-2">No date added</small>
                     @endif
                   </div>
                   <p class="mb-1">{{ Str::limit($quiz->description, 200)}}</p>
@@ -41,10 +41,8 @@
             <ul class="list-group list-group-flush">
               @foreach ($results as $result )
               <li class="list-group-item link-primary"><a href="{{route('quiz.detail', $result->quiz->slug)}}">{{$result->quiz->title}} 
-                <strong class="float-right">{{$result->score}}</strong>
-
+                <strong class="badge bg-primary float-right ">{{$result->score}}</strong>
               </li>
-
               @endforeach
             </ul>
           </div>

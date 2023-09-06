@@ -51,6 +51,7 @@ class UserController extends Controller
             'name'=>$request->name,
             'email'=>$request->email,
             'password'=>bcrypt($request->password),
+            'type'=>$request->type
         ]);
 
         //User::create($request->post());
@@ -85,7 +86,9 @@ class UserController extends Controller
             User::where('id', $id)->update(
             ['name' =>$request->name, 
             'password' => bcrypt($request->password), 
-            'email' =>$request->email ]
+            'email' =>$request->email ,
+            'type'=>$request->type
+            ]
             );
         // }
 

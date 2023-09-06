@@ -30,7 +30,7 @@
                   <tr>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Type</th>
+                    <th scope="col" style="width:5rem;">Type</th>
                     <th scope="col" style="width:8rem;">Options</th>
                   </tr>
                 </thead>
@@ -39,7 +39,7 @@
                     <tr>
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
-                        <td>{{$user->type}}</td>
+                        <td class="badge bg-secondary text-white text-uppercase">{{$user->type}}</td>
                         <td>
                             <a href="{{route('users.edit', $user->id)}}" class="btn btn-sm btn-primary">Edit</a>
                             <a href="{{route('users.destroy', $user->id)}}" class="btn btn-sm btn-danger">Delete</a>
