@@ -2,6 +2,8 @@
     <x-slot name="header">
         {{$quiz->title}} Result
     </x-slot>
+    <a href="{{route('quiz.detail', $quiz->slug)}}" class="btn btn-warning " style="margin-bottom: 10px;">Go Back</a>
+
 
 
             @foreach ($quiz->questions as $question )

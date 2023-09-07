@@ -47,7 +47,6 @@ class MainController extends Controller
             }
 
         foreach($quiz->questions as $question){
-            //echo $question->id.'-'.$question->correct_answer.'/'.$request->post($request->id).'<br>';
             Answer::create([
                 'user_id'=>auth()->user()->id,
                 'question_id'=>$question->id,
