@@ -40,8 +40,6 @@ return new class extends Migration
                 'password'=>bcrypt('student123'),
                 'type'=>'student'
             ));
-
-
     }
 
     /**

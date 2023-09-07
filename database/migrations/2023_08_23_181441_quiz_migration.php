@@ -20,7 +20,6 @@ return new class extends Migration
             $table->integer('duration')->nullable();
             $table->integer('passing_score')->nullable();
             $table->enum('status', ['active','draft', 'passive'])->default('draft');
-
             $table->timestamps();
         });
     }
